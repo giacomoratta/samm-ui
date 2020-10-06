@@ -14,7 +14,6 @@ import MainPage from './MainPage'
 import Config from './Config'
 
 const App = (props) => {
-
   const { fetchConfigurations } = props
 
   useEffect(() => {
@@ -23,10 +22,10 @@ const App = (props) => {
     }).catch((e) => {
       console.error('Cannot load config', e)
     })
-  }, [ fetchConfigurations ])
+  }, [fetchConfigurations])
 
   return (
-    <div className="ui container">
+    <div className='ui container'>
       <Router history={history}>
         <div>
           <Header />

@@ -4,14 +4,13 @@ import ConfigTextField from './fields/configTextField'
 import ConfigFieldTODO from './fields/configFieldTODO'
 
 const Config = (props) => {
-
   const { configurations } = props
 
   if (configurations.lastError) {
     return (
       <div>
         <h2>Configuration</h2>
-        <div className="ui negative message">Unexpected error: cannot load the configuration</div>
+        <div className='ui negative message'>Unexpected error: cannot load the configuration</div>
       </div>
     )
   }
@@ -19,17 +18,17 @@ const Config = (props) => {
   return (
     <div>
       <h2>Configuration</h2>
-      <form className="ui form">
+      <form className='ui form'>
         <ConfigFieldTODO
-          configProp="SamplesDirectory"
-          inputWidth="16"
-          labelText="Samples directory"
+          configProp='SamplesDirectory'
+          inputWidth='16'
+          labelText='Samples directory'
         />
 
         <ConfigTextField
-          name="LookRandomCount"
-          inputWidth="6"
-          labelText="Number of samples for each random set"
+          name='LookRandomCount'
+          inputWidth='6'
+          labelText='Number of samples for each random set'
           validate={(value) => {
             if (!(/^[0-9]+$/i).test(value)) {
               return [{ message: 'Only numbers!' }]
@@ -38,33 +37,33 @@ const Config = (props) => {
         />
 
         <ConfigTextField
-          name="LookRandomSameDirectory"
-          inputWidth="6"
-          labelText="Maximum number of samples from the same directory"
+          name='LookRandomSameDirectory'
+          inputWidth='6'
+          labelText='Maximum number of samples from the same directory'
         />
 
         <ConfigFieldTODO
-          configProp="SamplesDirectoryExclusions"
-          inputWidth="16"
-          labelText="Directories to be skipped"
+          configProp='SamplesDirectoryExclusions'
+          inputWidth='16'
+          labelText='Directories to be skipped'
         />
 
         <ConfigFieldTODO
-          configProp="ExcludedExtensionsForSamples"
-          inputWidth="16"
-          labelText="File extensions to be skipped"
+          configProp='ExcludedExtensionsForSamples'
+          inputWidth='16'
+          labelText='File extensions to be skipped'
         />
 
         <ConfigFieldTODO
-          configProp="IncludedExtensionsForSamples"
-          inputWidth="16"
-          labelText="File extensions to be included"
+          configProp='IncludedExtensionsForSamples'
+          inputWidth='16'
+          labelText='File extensions to be included'
         />
 
         <ConfigTextField
-          name="ExtensionsPolicyForSamples"
-          inputWidth="6"
-          labelText="Policy for samples scan"
+          name='ExtensionsPolicyForSamples'
+          inputWidth='6'
+          labelText='Policy for samples scan'
         />
       </form>
     </div>

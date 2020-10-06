@@ -3,13 +3,12 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class Header extends React.Component {
-
   render () {
     return (
-      <div className="ui stackable menu">
-        <Link className="item" to="/">Look</Link>
-        <Link className="item" to="/config">Configure</Link>
-        <Link className="item" to="/about">About</Link>
+      <div className='ui stackable menu'>
+        <Link className='item' to='/'>Look</Link>
+        <Link className='item' to='/config'>Configure</Link>
+        <Link className='item' to='/about'>About</Link>
       </div>
     )
   }

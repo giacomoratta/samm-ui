@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import configReducer from './configReducer';
+import configReducer from './configReducer'
 
 export default combineReducers({
   configurations: configReducer

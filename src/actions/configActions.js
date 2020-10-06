@@ -1,4 +1,4 @@
-import sammApi from '../sammApi';
+import sammApi from '../sammApi'
 // import history from '../history'
 
 import {
@@ -13,9 +13,9 @@ export const fetchConfigurations = () => {
       const response = await sammApi.get('/config')
       dispatch({
         type: FETCH_CONFIGURATIONS,
-        payload: response.data ? response.data.reduce(function(map, obj) {
-          map[obj.id] = obj.value;
-          return map;
+        payload: response.data ? response.data.reduce(function (map, obj) {
+          map[obj.id] = obj.value
+          return map
         }, {}) : {}
       })
     } catch (error) {
