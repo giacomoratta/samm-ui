@@ -1,0 +1,30 @@
+{
+  "config": [
+    {
+      "id": "SamplesDirectory",
+      "value": ""
+    },
+    {
+      "id": "LookRandomCount",
+      "value": "12"
+    },
+    {
+      "id": "LookRandomSameDirectory",
+      "value": "2"
+    },
+    {
+      "id": "ExtensionsPolicyForSamples",
+      "value": "E"
+    }
+  ],
+  "look-last": [
+    {
+      "name": "sample1.wav",
+      "path": "/abc/cde/sample1.wav"
+    },
+    {
+      "name": "sample2.wav",
+      "path": "/fgh/qwerty/sample2.wav"
+    }
+  ]
+}
