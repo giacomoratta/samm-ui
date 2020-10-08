@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { changeConfiguration } from '../../actions/configActions'
 
-let $d = console.log
-$d = () => {}
-
 const renderErrors = ({ inputErrors }) => {
   if (!inputErrors || inputErrors.length === 0) return
   return (
@@ -34,10 +31,10 @@ const renderComponent = ({ props, value, setValue, isBusy, inputErrors, setInput
   return (
     <div className={`inline fields ${isLoading ? 'disabled' : ''}`}>
       <div className='field' style={{ position: 'relative' }}>
-        <label>{labelText}</label>
+        <label htmlFor={name}>{labelText}</label>
         <input
           autoComplete='off'
-          type='text'
+          type='file'
           name={name}
           style={inputStyle}
           value={isLoading ? '' : value}
@@ -45,6 +42,7 @@ const renderComponent = ({ props, value, setValue, isBusy, inputErrors, setInput
             validateAndShowErrors(e.target.value)
             setValue(e.target.value)
           }}
+          webkitdirectory='on' directory='on'
         />
         <div className={`ui tiny loader ${isLoading ? 'active' : ''}`} style={{ left: '105%' }} />
         {renderErrors({ inputErrors })}
@@ -53,11 +51,11 @@ const renderComponent = ({ props, value, setValue, isBusy, inputErrors, setInput
   )
 }
 
-const ConfigTextField = (props) => {
+const ConfigInputField = (props) => {
   const { configurations, name, changeConfiguration } = props
   const loadedValue = configurations[name]
 
-  const [value, setValue] = useState()
+  let [value, setValue] = useState()
   const [debouncedValue, setDebouncedValue] = useState()
   const [storedValue, setStoredValue] = useState()
   const [isBusy, setIsBusy] = useState(true)
@@ -65,27 +63,21 @@ const ConfigTextField = (props) => {
 
   // Effectively send the data to API
   useEffect(() => {
-    $d('debouncedValue', debouncedValue)
+    console.log('debouncedValue', debouncedValue)
     if (!debouncedValue) return
     setIsBusy(true)
-    changeConfiguration(name, debouncedValue)
+    // changeConfiguration(name, debouncedValue)
   }, [debouncedValue, name, changeConfiguration])
 
   // Capture value from input + debounce
   useEffect(() => {
-    $d('value', value)
-    const timerId = setTimeout(() => {
-      if (!value) return
-      if (value === storedValue) return
-      if (inputErrors && inputErrors.length > 0) return
-      setDebouncedValue(value)
-    }, 700)
-    return () => { clearTimeout(timerId) }
+    console.log('value', value)
+    value = ''
   }, [value, storedValue, inputErrors])
 
   // Wait for loading data
   useEffect(() => {
-    $d('loadedValue', loadedValue)
+    console.log('loadedValue', loadedValue)
     setStoredValue(loadedValue)
     setValue(loadedValue)
     setIsBusy(false)
@@ -105,4 +97,4 @@ export default connect(
   {
     changeConfiguration
   }
-)(ConfigTextField)
+)(ConfigInputField)

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ConfigTextField from './fields/configTextField'
+import ConfigInputField from './fields/configInputField'
 import ConfigFieldTODO from './fields/configFieldTODO'
 
 const Config = (props) => {
@@ -19,8 +20,8 @@ const Config = (props) => {
     <div>
       <h2>Configuration</h2>
       <form className='ui form'>
-        <ConfigFieldTODO
-          configProp='SamplesDirectory'
+        <ConfigInputField
+          name='SamplesDirectory'
           inputWidth='16'
           labelText='Samples directory'
         />
