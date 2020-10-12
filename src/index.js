@@ -18,7 +18,6 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>{ bb() }</div>
     <App />
   </Provider>,
   document.querySelector('#root')
